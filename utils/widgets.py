@@ -27,12 +27,16 @@ def excel_file_uploader(label):
         st.stop()
     wb = openpyxl.load_workbook(file_buffer, data_only=True)
 
-    # Get worksheet
-    worksheet = selectbox_without_default("Choose worksheet", wb.sheetnames,
-                                          "Choose a worksheet")
-    if not worksheet:
-        st.stop()
-    ws = wb.get_sheet_by_name(worksheet)
+    if len(wb.sheetnames) > 1:
+        # Let the user choose worksheet
+        worksheet = selectbox_without_default("Choose worksheet", wb.sheetnames,
+                                              "Choose a worksheet")
+        if not worksheet:
+            st.stop()
+        ws = wb.get_sheet_by_name(worksheet)
+    else:
+        # Get the only present worksheet
+        ws = wb.worksheets[0]
 
     # Specify header if available
     header = st.checkbox("Header?", value=True)
