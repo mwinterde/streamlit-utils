@@ -1,7 +1,7 @@
 import utils.widgets
 import streamlit as st
 
-WRAPPER = ['utils.excel_file_uploader']
+WRAPPER = ['utils.widgets.excel_file_uploader']
 
 def main():
     st.title(":gear: My Toolbox")
