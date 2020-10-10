@@ -8,7 +8,7 @@ wrapper by running the `app.py` file with streamlit.
 Step 1: Clone this repository.
 
 ```
-git clone
+git clone git@github.com:mwinterde/streamlit-utils.git
 ```
 
 Step 2: Install the dependencies.
